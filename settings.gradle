@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='Toss a Koin to your Witcher'
