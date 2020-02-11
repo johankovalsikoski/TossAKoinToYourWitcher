@@ -44,6 +44,7 @@ dependencies {
     def lifecycle_coretesting_version = '2.1.0'
     testImplementation "androidx.arch.core:core-testing:$lifecycle_coretesting_version"
 
-
+    def mockito_version = '2.28.2'
+    testImplementation "org.mockito:mockito-core:$mockito_version"
 
 }

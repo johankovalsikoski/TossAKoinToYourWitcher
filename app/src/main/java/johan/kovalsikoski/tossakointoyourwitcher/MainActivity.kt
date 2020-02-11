@@ -1,7 +1,8 @@
 package johan.kovalsikoski.tossakointoyourwitcher
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -19,6 +20,19 @@ class MainActivity : AppCompatActivity() {
 
         tv.setOnLongClickListener {
             tv.text = viewModel.returnLongClick()
+            true
+        }
+
+        viewModel.points.observe(this, Observer { data ->
+            tv_count.text = "Container Clicks $data"
+        })
+
+        mainContainer.setOnClickListener {
+            viewModel.addPoint()
+        }
+
+        mainContainer.setOnLongClickListener {
+            viewModel.removePoint()
             true
         }
 
